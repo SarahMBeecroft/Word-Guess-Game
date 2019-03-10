@@ -1,5 +1,14 @@
+// All variables
 // Array of Star Wars words
 var words = ["tatooine", "poe dameron", "lando calrissian", "millennium falcon", "jyn erso", "battle droid", "cross saber", "rebel alliance", "endor", "tie interceptor"];
+// Array for right guesses
+var rightGuesses = [];
+// Array for wrong guesses
+var wrongGuesses = [];
+// Array for underscores
+var underscores = [];
+
+
 
 // Generates random word between 0 and length of array
 var randomWord = words[Math.floor(Math.random() * words.length)];
@@ -15,9 +24,6 @@ var getRandomWord = function () {
     return words[Math.floor(Math.random() * words.length)];
 };
 
-// Create variables for underscores
-var underscores = [];
-
 // Function that creates underscores based on length of random word
 function generateUnderscore () {
     // For Loop
@@ -31,10 +37,24 @@ function generateUnderscore () {
 // Test generateUnderscore function
 console.log(generateUnderscore());
 
-// Set up ontouch for user to guess words
+// Function to set up ontouch for user to guess words
 document.onkeyup = function(event) {
-    console.log(event);
-};
+    // Gets users key stroke
+    var keyword = String.fromCharCode(event.keyCode);
+    // Compare key code to randomly chosen word
+    if(randomWord.indexOf(keyword) > -1) {
+        // Pushes to right guesses array
+        rightGuesses.push(keyword);
+        console.log(rightGuesses); 
+    }
+
+    else {
+        // Pushes to wrong guesses array
+        wrongGuesses.push(keyword);
+        console.log(wrongGuesses);
+    }
+     
+    };
 
 // Prints underscores to HTML
 document.getElementsByClassName("underscores").innerHTML = "event";

@@ -1,5 +1,5 @@
 // Array of Star Wars words
-var words = ["tatooine", "poe dameron", "lando calrissian", "millennium falcon", "sheev palpatine", "battle droid", "cross saber", "rebel alliance", "endor", "tie interceptor"];
+var words = ["tatooine", "poe dameron", "lando calrissian", "millennium falcon", "jyn erso", "battle droid", "cross saber", "rebel alliance", "endor", "tie interceptor"];
 
 // Generates random word between 0 and length of array
 var randomWord = words[Math.floor(Math.random() * words.length)];
@@ -23,11 +23,22 @@ function generateUnderscore () {
     // For Loop
     var i;
     for (i = 0; i < randomWord.length; i++) { 
-    underscores.push("_")
-}
+    underscores.push("_");
+    }
+    return underscores;
 }
 
-// Set up ontouch for user to guess
+// Test generateUnderscore function
+console.log(generateUnderscore());
+
+// Set up ontouch for user to guess words
+document.onkeyup = function(event) {
+    console.log(event);
+};
+
+// Prints underscores to HTML
+document.getElementsByClassName("underscores").innerHTML = "event";
+
 
 // If letter is in word, add to underscore. Else, mark as 1 guess
 

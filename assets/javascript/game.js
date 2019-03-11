@@ -40,9 +40,11 @@ function checkForLetter(letter) {
     var correctSound = document.createElement("audio")
     var incorrectSound = document.createElement("audio")
     var winSound = document.createElement("audio")
+    var loseSound = document.createElement("audio")
         correctSound.setAttribute("src", "assets/audio/coolsaber.mp3")
         incorrectSound.setAttribute("src","assets/audio/laserturret.mp3")
         winSound.setAttribute("src", "assets/audio/forcestrong.mp3")
+        loseSound.setAttribute("src", "assets/audio/yodafail.mp3")
 
 // Searches current string for letter guessed
     for (var i = 0, j = wordToMatch.length; i < j; i++) {
@@ -78,6 +80,8 @@ function checkForLetter(letter) {
         if (numGuess === 0) {
             // Display word before resetting game
             guessingWord = wordToMatch.split()
+            // Plays losing sound
+            loseSound.play()
             pauseGame = true
             setTimeout(resetGame, 5000)
         }

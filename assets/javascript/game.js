@@ -1,7 +1,7 @@
 //Global variables
 
 // Array of Star Wars words
-var words = ["tatooine", "chewbacca", "lando", "ewoks", "empire", "hoth", "crosssaber", "rebels", "endor", "obiwan"];
+var words = ["tatooine", "chewbacca", "lando", "ewoks", "empire", "hoth", "lightsaber", "rebels", "endor", "obiwan"];
 // Sets max number of guesses
 var maxGuess = 10
 // Resets game
@@ -41,12 +41,13 @@ function checkForLetter(letter) {
     var incorrectSound = document.createElement("audio")
     var winSound = document.createElement("audio")
     var loseSound = document.createElement("audio")
-        correctSound.setAttribute("src", "assets/audio/coolsaber.mp3")
-        incorrectSound.setAttribute("src","assets/audio/laserturret.mp3")
-        winSound.setAttribute("src", "assets/audio/forcestrong.mp3")
-        loseSound.setAttribute("src", "assets/audio/yodafail.mp3")
+    correctSound.setAttribute("src", "assets/audio/coolsaber.mp3")
+    incorrectSound.setAttribute("src", "assets/audio/laserturret.mp3")
+    winSound.setAttribute("src", "assets/audio/forcestrong.mp3")
+    loseSound.setAttribute("src", "assets/audio/yodafail.mp3")
 
-// Searches current string for letter guessed
+
+    // Searches current string for letter guessed
     for (var i = 0, j = wordToMatch.length; i < j; i++) {
         if (letter === wordToMatch[i]) {
             guessingWord[i] = letter
@@ -91,6 +92,16 @@ function checkForLetter(letter) {
 
 }
 
+
+
+
+// Images for guess
+var tatooineImage = document.createElement("image")
+tatooineImage.setAttribute("src", "assets/images/tatooine.jpg")
+
+
+
+
 // Makes sure letter pressed is a-z (lower case or caps)
 function isAlpha(ch) {
     return /^[A-Z]$/i.test(ch);
@@ -101,15 +112,15 @@ function resetGame() {
     numGuess = maxGuess
     pauseGame = false
 
-// Get a new word
-wordToMatch = words[Math.floor(Math.random() * words.length)].toUpperCase()
+    // Get a new word
+    wordToMatch = words[Math.floor(Math.random() * words.length)].toUpperCase()
 
 
-// Reset word arrays
-guessedLetters = []
-guessingWord = []
+    // Reset word arrays
+    guessedLetters = []
+    guessingWord = []
 
-// Reset the guessed word
+    // Reset the guessed word
     for (var i = 0, j = wordToMatch.length; i < j; i++) {
         // Put a space instead of an underscore between multi word "words"
         if (wordToMatch[i] === " ") {
@@ -119,7 +130,7 @@ guessingWord = []
         }
     }
 
-// Function to update the DOM
+    // Function to update the DOM
     updateDisplay()
 }
 
@@ -127,6 +138,6 @@ guessingWord = []
 function updateDisplay() {
     document.getElementById("totalWins").innerHTML = wins
     document.getElementById("currentWord").innerHTML = guessingWord.join(" ")
-    document.getElementById("remainingGuesses").innerHTML= numGuess
+    document.getElementById("remainingGuesses").innerHTML = numGuess
     document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ")
 }

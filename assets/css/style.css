@@ -13,14 +13,23 @@
 }
 
 body {
-    background-image: url("../../assets/images/starbackground.jpeg");
     background-color: black;
     color: white;
     display: flex;
+    /* Follow prevents image from stretching  */
+    background: url(../../assets/images/star-wars-wallpaper.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
 }
 .container {
+    /* Centers */
     margin: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
     text-align: center;
+    border: 3px outset white;
+    width: 1000px;
 }
 #currentWord {
     /* Adds space between underscores */ 
@@ -33,4 +42,26 @@ h1 {
     color: black;
     /* Adds border/shadow effect in Star Wars yellow */ 
     text-shadow: -1px 0 #ffe919, 0 3px #ffe919, 3px 0 #ffe919, 0 -1px #ffe919;
+}
+
+h2 {
+    font-family: 'distant_galaxyregular';
+    font-size: 25px;
+    color: black;
+    /* Adds border/shadow effect in Star Wars yellow */ 
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+
+h4 {
+    font-family: 'distant_galaxyregular';
+    font-size: 20px;
+    color: black;
+    /* Adds border/shadow effect in Star Wars yellow */ 
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+
+#guessedLetters {
+    padding-bottom: 50px;
 }

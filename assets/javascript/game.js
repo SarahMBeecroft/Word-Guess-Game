@@ -36,12 +36,18 @@ document.onkeypress = function (event) {
 // Checks to see if letter guessed is in guessing word
 function checkForLetter(letter) {
     var foundLetter = false
+    var correctSound = document.createElement("audio")
+        var incorrectSound = document.createElement("audio")
+        correctSound.setAttribute("src", "assets/audio/coolsaber.mp3")
+        incorrectSound.setAttribute("src","assets/audio/laserturret.mp3")
 
 // Searches current string for letter guessed
     for (var i = 0, j = wordToMatch.length; i < j; i++) {
         if (letter === wordToMatch[i]) {
             guessingWord[i] = letter
             foundLetter = true
+            // Plays sound for correct guess
+            correctSound.play()
             // If guessing word matches random word
             if (guessingWord.join("") === wordToMatch) {
                 // Adds +1 to wins
@@ -55,6 +61,8 @@ function checkForLetter(letter) {
     }
 
     if (!foundLetter) {
+        // Plays sound for incorrect guess
+        incorrectSound.play()
         // Checks to see if inccorrect guess is already on the list
         if (!guessedLetters.includes(letter)) {
             // Add incorrect letter to guessed letter list

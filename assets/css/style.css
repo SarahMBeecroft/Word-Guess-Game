@@ -10,7 +10,10 @@
     font-weight: normal;
     font-style: normal;
 
-}body {
+}
+
+body {
+    background-image: url("../../assets/images/starbackground.jpeg");
     background-color: black;
     color: white;
     display: flex;

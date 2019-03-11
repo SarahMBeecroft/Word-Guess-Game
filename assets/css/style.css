@@ -28,7 +28,7 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
-    border: 3px outset white;
+    border: 5px double white;
     width: 1000px;
 }
 #currentWord {

@@ -3,7 +3,7 @@
 // Array of Star Wars words
 var words = ["tatooine", "chewbacca", "lando", "ewoks", "empire", "hoth", "crosssaber", "rebels", "endor", "obiwan"];
 // Sets max number of guesses
-const maxGuess = 10
+var maxGuess = 10
 // Resets game
 var pauseGame = false
 // Letters user has guessed
@@ -36,10 +36,13 @@ document.onkeypress = function (event) {
 // Checks to see if letter guessed is in guessing word
 function checkForLetter(letter) {
     var foundLetter = false
+    // Audio for guesses
     var correctSound = document.createElement("audio")
-        var incorrectSound = document.createElement("audio")
+    var incorrectSound = document.createElement("audio")
+    var winSound = document.createElement("audio")
         correctSound.setAttribute("src", "assets/audio/coolsaber.mp3")
         incorrectSound.setAttribute("src","assets/audio/laserturret.mp3")
+        winSound.setAttribute("src", "assets/audio/forcestrong.mp3")
 
 // Searches current string for letter guessed
     for (var i = 0, j = wordToMatch.length; i < j; i++) {
@@ -52,6 +55,8 @@ function checkForLetter(letter) {
             if (guessingWord.join("") === wordToMatch) {
                 // Adds +1 to wins
                 wins++
+                // Plays winning audio
+                winSound.play()
                 pauseGame = true
                 updateDisplay()
                 // Resets game after 5 seconds
@@ -59,7 +64,7 @@ function checkForLetter(letter) {
             }
         }
     }
-
+    // If letter is not in chosen word
     if (!foundLetter) {
         // Plays sound for incorrect guess
         incorrectSound.play()

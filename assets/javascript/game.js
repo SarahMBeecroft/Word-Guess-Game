@@ -44,7 +44,7 @@ function checkForLetter(letter) {
             foundLetter = true
             // If guessing word matches random word
             if (guessingWord.join("") === wordToMatch) {
-                // Add +1 to wins
+                // Adds +1 to wins
                 wins++
                 pauseGame = true
                 updateDisplay()
@@ -109,7 +109,7 @@ guessingWord = []
 // Updates HTML to show wins, curent word, remaining guesses, and letters already guessed
 function updateDisplay() {
     document.getElementById("totalWins").innerHTML = wins
-    document.getElementById("currentWord").innerHTML = guessingWord.join("")
+    document.getElementById("currentWord").innerHTML = guessingWord.join(" ")
     document.getElementById("remainingGuesses").innerHTML= numGuess
     document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ")
 }

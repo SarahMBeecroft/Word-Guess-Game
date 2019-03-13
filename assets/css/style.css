@@ -16,7 +16,7 @@ body {
     background-color: black;
     color: white;
     display: flex;
-    /* Follow prevents image from stretching  */
+    /* Following prevents image from stretching  */
     background: url(../../assets/images/star-wars-wallpaper.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100%;
@@ -28,7 +28,8 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
     text-align: center;
-    border: 5px double white;
+    border: 8px outset white;
+    background: black;
     width: 1000px;
 }
 #currentWord {
@@ -52,7 +53,6 @@ h2 {
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-
 h4 {
     font-family: 'distant_galaxyregular';
     font-size: 20px;
@@ -61,7 +61,7 @@ h4 {
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-
+/* Adds room for guessed letters */
 #guessedLetters {
     padding-bottom: 50px;
 }

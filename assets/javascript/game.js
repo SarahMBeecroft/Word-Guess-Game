@@ -1,12 +1,29 @@
+// These images are not in game, placeholder for now
+
+// // Global object for array of Star Wars words and corresponding images
+// var words = [
+//     {word: "tatooine", image:"assets/images/tatooine.jpg"},
+//     {word: "chewbacca", image:"assets/images/chewbacca.jpg"},
+//     {word: "lando", image:"assets/images/lando.jpg"},
+//     {word: "ewoks", image:"assets/images/ewoks.jpg"},
+//     {word: "empire", image:"assets/images/empire.jpg"},
+//     {word: "hoth", image:"assets/images/hoth.jpg"},
+//     {word: "lightsaber", image:"assets/images/lightsaber.jpg"},
+//     {word: "rebels", image:"assets/images/rebels.jpg"},
+//     {word: "endor", image:"assets/images/endor.jpg"},
+//     {word: "obiwan", image:"assets/images/obiwan.jpg"},
+//   ];
+
 //Global variables
 
 // Array of Star Wars words
 var words = ["tatooine", "chewbacca", "lando", "ewoks", "empire", "hoth", "lightsaber", "rebels", "endor", "obiwan"];
-// Sets max number of guesses
+
+// // Sets max number of guesses
 var maxGuess = 10
 // Resets game
 var pauseGame = false
-// Letters user has guessed
+// Array for letters user has guessed
 var guessedLetters = [];
 // Word user is guessing
 var guessingWord = [];
@@ -36,7 +53,7 @@ document.onkeypress = function (event) {
 // Checks to see if letter guessed is in guessing word
 function checkForLetter(letter) {
     var foundLetter = false
-    // Audio for guesses
+    // Audio for correct/wrong guesses, and winning/losing
     var correctSound = document.createElement("audio")
     var incorrectSound = document.createElement("audio")
     var winSound = document.createElement("audio")
@@ -67,6 +84,8 @@ function checkForLetter(letter) {
             }
         }
     }
+
+
     // If letter is not in chosen word
     if (!foundLetter) {
         // Plays sound for incorrect guess
@@ -87,20 +106,10 @@ function checkForLetter(letter) {
             setTimeout(resetGame, 5000)
         }
     }
-
+    // Updates the DOM
     updateDisplay()
 
 }
-
-
-
-
-// Images for guess
-var tatooineImage = document.createElement("image")
-tatooineImage.setAttribute("src", "assets/images/tatooine.jpg")
-
-
-
 
 // Makes sure letter pressed is a-z (lower case or caps)
 function isAlpha(ch) {
@@ -141,3 +150,4 @@ function updateDisplay() {
     document.getElementById("remainingGuesses").innerHTML = numGuess
     document.getElementById("guessedLetters").innerHTML = guessedLetters.join(" ")
 }
+
